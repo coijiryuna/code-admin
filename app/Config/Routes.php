@@ -55,6 +55,7 @@ $routes->group('member', function ($routes) {
         'filter'    => 'permission:back-office',
         'namespace' => 'App\Controllers\Users',
     ], function ($routes) {
+        $routes->get('profile', 'UserController::profile');
         $routes->match(['get', 'post'], 'profile', 'UserController::profile', ['as' => 'user-profile']);
     });
 });
@@ -79,6 +80,7 @@ $routes->group('admin', function ($routes) {
         'filter'    => 'permission:back-office',
         'namespace' => 'App\Controllers\Users',
     ], function ($routes) {
+        $routes->get('profile', 'UserController::profile');
         $routes->match(['get', 'post'], 'profile', 'UserController::profile', ['as' => 'user-profile']);
         $routes->resource('manage', [
             'filter'     => 'permission:manage-user',
