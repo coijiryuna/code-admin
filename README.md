@@ -39,12 +39,17 @@ framework are exposed.
 ## Use Management
 
 Role Group
+
 || id  || name   || description      ||
+
 || 1   || admin  || Administrator    ||
+
 || 2   || member || Member           ||
 
 for example 
-role member
+
+Role `member`
+
 `$routes->group('member', function ($routes) {
     $routes->group('user', [
         'filter'    => 'permission:back-office',
