@@ -46,6 +46,12 @@ Role Group
 
 || 2   || member || Member           ||
 
+for get name on table role
+
+`on_groups()->nama`
+
+will gate name of role
+
 for example 
 
 Role `member`
