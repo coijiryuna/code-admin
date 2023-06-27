@@ -16,7 +16,9 @@ The user guide corresponding to the latest version of the framework can be found
 
 ## Installation & updates
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
+`https://github.com/coijiryuna/code-admin.git` then `composer update` whenever
+
+`> php spark db:seed MySeeder `
 there is a new release of the framework.
 
 When updating, check the release notes to see if there are any changes you might need to apply
