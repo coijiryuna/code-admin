@@ -1,16 +1,6 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter 4 ADMIN PANEL BOILERPLATE
 
 ## What is CodeIgniter?
-
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
-
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
-
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
-
 The user guide corresponding to the latest version of the framework can be found
 [here](https://codeigniter4.github.io/userguide/).
 
@@ -18,7 +8,6 @@ The user guide corresponding to the latest version of the framework can be found
 
 `https://github.com/coijiryuna/code-admin.git` then `composer update` whenever
 
-`> php spark db:seed MySeeder `
 there is a new release of the framework.
 
 When updating, check the release notes to see if there are any changes you might need to apply
@@ -26,6 +15,12 @@ to your `app` folder. The affected files can be copied or merged from
 `vendor/codeigniter4/framework/app`.
 
 ## Setup
+Create Database Setup 
+
+- Migrate
+`> php spark migrate`
+- Seader
+`> php spark db:seed MySeeder `
 
 Copy `env` to `.env` and tailor for your app, specifically the baseURL
 and any database settings.
@@ -41,14 +36,23 @@ framework are exposed.
 
 **Please** read the user guide for a better explanation of how CI4 works!
 
-## Repository Management
+## Use Management
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Role Group
+|| id  || name   || description      ||
+|| 1   || admin  || Administrator    ||
+|| 2   || member || Member           ||
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+for example 
+role member
+`$routes->group('member', function ($routes) {
+    $routes->group('user', [
+        'filter'    => 'permission:back-office',
+        'namespace' => 'App\Controllers\Users',
+    ], function ($routes) {
+        $routes->match(['get', 'post'], 'profile', 'UserController::profile', ['as' => 'user-profile']);
+    });
+});`
 
 ## Server Requirements
 
