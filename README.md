@@ -48,7 +48,7 @@ Role Group
 
 for get name on table role
 
-`on_groups()->nama`
+`on_groups()->name`
 
 will gate name of role
 
